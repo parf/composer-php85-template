@@ -22,6 +22,7 @@ jobs:
           git clone --depth=1 https://github.com/homebase/php-tools.git /tmp/php-tools
           /tmp/php-tools/php-tools install all
           ln -s /tmp/php-tools/bin tools
+          echo "$PWD/tools" >> "$GITHUB_PATH"
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
