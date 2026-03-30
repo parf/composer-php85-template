@@ -1,0 +1,51 @@
+{
+    "name": "parf/composer-php85-template",
+    "description": "PHP 8.5 Template for composer/packagist",
+    "keywords": ["template", "php85"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Parf",
+            "email": "sergey.porfiriev@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=8.5"
+    },
+    "require-dev": {
+    },    
+    "autoload": {
+        "psr-4": {
+            "TemplatePackage\\": "src/TemplatePackage/"
+        }
+    },
+  "scripts": {
+    "phpstan": "tools/phpstan analyse -c phpstan.neon src",
+    "stan": "tools/phpstan analyse -c phpstan.neon src",
+    "stan-q": "tools/phpstan -q analyse -c phpstan.neon src",
+    "stan2": "tools/phpstan analyse --level 2 -c phpstan.neon src",
+    "stan3": "tools/phpstan analyse --level 3 -c phpstan.neon src",
+    "stan4": "tools/phpstan analyse --level 4 -c phpstan.neon src",
+    "stan5": "tools/phpstan analyse --level 5 -c phpstan.neon src",
+    "stan6": "tools/phpstan analyse --level 6 -c phpstan.neon src",
+    "doc": "tools/phpDocumentor.phar -d 'src' -t doc",
+    "psalm": "tools/psalm.phar",
+    "psalm-dry": "tools/psalm.phar --alter --issues=MissingClosureReturnType,UnusedVariable,MissingReturnType,InvalidReturnType --dry-run",
+    "psalm-fix": "tools/psalm.phar --alter --issues=MissingClosureReturnType,UnusedVariable,MissingReturnType,InvalidReturnType",
+    "mago-lint": "tools/mago --php-version=8.5 lint src tests",
+    "mago-analyze": "tools/mago --php-version=8.5 analyze src tests",
+    "mago-format-dry": "tools/mago --php-version=8.5 format --dry-run src tests",
+    "mago-format-check": "tools/mago --php-version=8.5 format --check src tests",
+    "mago-format": "tools/mago --php-version=8.5 format src tests",
+    "cs-dry": "tools/php-cs-fixer fix --diff -v --dry-run src",
+    "cs-fix": "tools/php-cs-fixer fix --diff -v src",
+    "rector-dry": "tools/rector process src --dry-run",
+    "rector": "tools/rector process src",
+    "test": "tools/stest-all tests",
+    "test-q": "tools/stest-all -q tests",
+    "pest": "@php scripts/pest-runner.php",
+    "pest-q": "@php scripts/pest-runner.php --compact",
+    "lint": "find src -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v \"No syntax errors detected\" )"
+  }    
+}

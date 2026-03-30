@@ -1,0 +1,60 @@
+<?php
+
+//
+// see https://mlocati.github.io/php-cs-fixer-configurator/#version:3.8   for MORE OPTIONS
+//
+
+declare(strict_types=1);
+
+$header = <<<'EOF'
+    This file is part of your package.
+    EOF;
+
+$finder = PhpCsFixer\Finder::create()
+    ->ignoreDotFiles(true)
+    ->ignoreVCSIgnored(true)
+    ->exclude('tests')
+#    ->in(__DIR__.'/src')
+;
+
+//    ->append([
+//        __DIR__.'/dev-tools/doc.php',
+        // __DIR__.'/php-cs-fixer', disabled, as we want to be able to run bootstrap file even on lower PHP version, to show nice message
+//    ])
+
+$config = new PhpCsFixer\Config();
+
+$config
+    ->setRiskyAllowed(true)
+    ->setRules(array_merge($config->getRules(), [
+        '@PER-CS' => true,
+        '@PHP85Migration' => true,
+        'array_push' => true,
+        'header_comment' => ['header' => $header],
+        'modernize_strpos' => true, // needs PHP 8+ or polyfill
+        'use_arrow_functions' => true,
+        'heredoc_indentation' => true,
+        'list_syntax' => ['syntax' => 'short'],
+        'visibility_required' => ['elements' => ['property']],
+        'phpdoc_summary' => false, // no useless dots
+        'explicit_string_variable' => false,  // "$a xxx $b" is OK !!
+        'echo_tag_syntax' => ['format' => 'short'],         // "<?= ... " - good and short
+	'strict_comparison' => false, // can break old code
+	'yoda_style' => false, // ugly sometimes
+	#'increment_style' => false, // c++ not ++c
+	'increment_style' => ['style' => 'post'], // c++ not ++c
+	'single_line_comment_style' => false,  // psalm does not support "//" comments
+	'phpdoc_to_comment' => false, // psalm does not like this	
+    ]))->setFinder($finder)
+
+;
+
+/*
+ * Deprecated !!
+        'braces' => [
+            'position_after_functions_and_oop_constructs' => 'same',   // "function () { " same line
+            'allow_single_line_closure' => true,
+	],
+*/
+
+return $config;

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+composer lint
+composer cs-dry
+composer test-q
+composer pest-q
+composer psalm
+composer stan-q
+
+echo
+echo "$(tput setab 2)$(tput setaf 7)*** CHECK SUCCESS ***$(tput sgr0)"
+echo

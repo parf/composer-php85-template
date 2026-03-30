@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+./check
+git push --follow-tags
+
+echo
+echo "$(tput setab 2)$(tput setaf 7)*** GIT-PUSH SUCCESS ***$(tput sgr0)"
+echo
