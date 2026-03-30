@@ -1,0 +1,45 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up PHP 8.5
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          coverage: none
+
+      - name: Install php-tools
+        run: |
+          git clone --depth=1 https://github.com/parf/php-tools.git /tmp/php-tools
+          /tmp/php-tools/php-tools install all
+          ln -s /tmp/php-tools/bin tools
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run syntax checks
+        run: composer lint
+
+      - name: Run Mago lint
+        run: composer mago-lint
+
+      - name: Run Mago format check
+        run: composer mago-format-check
+
+      - name: Run PHPStan
+        run: composer stan
+
+      - name: Run Psalm
+        run: composer psalm
+
+      - name: Run Rector dry run
+        run: composer rector-dry

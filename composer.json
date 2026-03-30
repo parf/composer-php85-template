@@ -42,10 +42,12 @@
     "cs-fix": "tools/php-cs-fixer fix --diff -v src",
     "rector-dry": "tools/rector process src --dry-run",
     "rector": "tools/rector process src",
-    "test": "tools/stest-all tests",
-    "test-q": "tools/stest-all -q tests",
+    "stest": "tools/stest-all tests",
+    "stest-q": "tools/stest-all -q tests",
     "pest": "@php scripts/pest-runner.php",
     "pest-q": "@php scripts/pest-runner.php --compact",
+    "test": "sh scripts/test-suite.sh",
+    "test-q": "sh scripts/test-suite.sh --quiet",
     "lint": "find src -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v \"No syntax errors detected\" )"
   }    
 }

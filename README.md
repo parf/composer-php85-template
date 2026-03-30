@@ -44,11 +44,15 @@ That means:
 
 ## Main Commands
 
-> `composer test`<br>
+> `composer stest`<br>
     run `spartan-test`
 
 > `composer pest`<br>
     run Pest through the shared `php-tools` install
+
+> `composer test`<br>
+    run the bundled test script that executes both Spartan and Pest tests;
+    comment lines in `scripts/test-suite.sh` to keep only the runners you want
 
 > `composer psalm`<br>
     run Psalm
@@ -89,11 +93,22 @@ That means:
 > `./psysh`<br>
     start the interactive PHP shell
 
+## GitHub Starter Files
+
+The template includes optional GitHub repository scaffolding:
+
+- Actions workflows for linting and tests
+- Dependabot configuration
+- issue templates for bug reports and questions
+
+These are adapted for the standalone `php-tools` workflow and do not require Docker.
+
 ## Project Layout
 
 - `src/TemplatePackage/` contains a sample `HelloWorlds` class
 - `tests/Test.stest` is the starter Spartan test
 - `tests/Pest.php` and `tests/Pest/HelloWorldsTest.php` are the starter Pest tests
+- `scripts/test-suite.sh` bundles the enabled test runners for `composer test`
 - `tests/fixtures-src/` is reserved for test-only sample source files if the package grows
 
 If your test suite grows, group tests by topic under `tests/` instead of keeping everything in one file.

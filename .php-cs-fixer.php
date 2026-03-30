@@ -28,14 +28,14 @@ $config
     ->setRiskyAllowed(true)
     ->setRules(array_merge($config->getRules(), [
         '@PER-CS' => true,
-        '@PHP85Migration' => true,
+        '@PHP8x5Migration' => true,
         'array_push' => true,
         'header_comment' => ['header' => $header],
         'modernize_strpos' => true, // needs PHP 8+ or polyfill
         'use_arrow_functions' => true,
         'heredoc_indentation' => true,
         'list_syntax' => ['syntax' => 'short'],
-        'visibility_required' => ['elements' => ['property']],
+        'modifier_keywords' => ['elements' => ['property']],
         'phpdoc_summary' => false, // no useless dots
         'explicit_string_variable' => false,  // "$a xxx $b" is OK !!
         'echo_tag_syntax' => ['format' => 'short'],         // "<?= ... " - good and short

@@ -1,0 +1,21 @@
+name: Question
+description: Ask a usage or design question.
+labels: ["question", "triage"]
+assignees: []
+body:
+  - type: input
+    id: package_version
+    attributes:
+      label: Package version
+      description: Run `composer show -s | head`.
+      placeholder: "example: 1.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      placeholder: Describe what you are trying to do and where the docs or behavior are unclear.
+    validations:
+      required: true

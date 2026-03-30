@@ -5,7 +5,6 @@ set -eu
 composer lint
 composer cs-dry
 composer test-q
-composer pest-q
 composer psalm
 composer stan-q
 
