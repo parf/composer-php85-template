@@ -19,7 +19,7 @@ jobs:
 
       - name: Install php-tools
         run: |
-          git clone --depth=1 https://github.com/parf/php-tools.git /tmp/php-tools
+          git clone --depth=1 https://github.com/homebase/php-tools.git /tmp/php-tools
           /tmp/php-tools/php-tools install all
           ln -s /tmp/php-tools/bin tools
 
