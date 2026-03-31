@@ -33,7 +33,7 @@ Then create the local `tools` symlink, rename the sample package bits, and run `
 
 Helper commands:
 
-- `./check-commit` runs `composer check`, then creates a commit from already staged files
+- `./check-commit` runs `composer check`, shows changed files, asks for a commit message if needed, then stages and commits all changes
 - `./check-push` runs `./check-commit`, then pushes the current branch
 - `./psysh` starts the interactive PHP shell
 
@@ -59,6 +59,7 @@ The template includes optional GitHub repository scaffolding:
 
 - Actions workflows for linting and tests
 - Dependabot configuration
+- `renovate.json.dist` as an optional Renovate starter config
 - issue templates for bug reports and questions
 
 These files are adapted for the standalone `php-tools` workflow and do not require Docker 🐳

@@ -1,10 +1,30 @@
 #!/bin/bash
 set -euo pipefail
 
+commit_message="${*:-}"
+
 composer check
+
+if git diff --quiet && git diff --cached --quiet; then
+    exit 0
+fi
+
+if [ -z "$commit_message" ]; then
+    echo "Files to commit:"
+    git status --short
+    echo
+    read -r -p "Commit message: " commit_message
+fi
+
+if [ -z "$commit_message" ]; then
+    echo "Empty commit message. Aborting."
+    exit 1
+fi
+
+git add -A
 
 if git diff --cached --quiet; then
     exit 0
 fi
 
-git commit -v -s
+git commit -v -s -m "$commit_message"
