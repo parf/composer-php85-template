@@ -4,7 +4,7 @@ set -eu
 
 PROJECT_ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
 TOOLS_CONFIG_FILE="${TOOLS_CONFIG_FILE:-$PROJECT_ROOT/config/tools.conf}"
-TOOLS_SETUP_URL="https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto"
+TOOLS_SETUP_URL="https://github.com/homebase/php-tools"
 
 ensure_managed_tools_path() {
     if ! command -v php-tools >/dev/null 2>&1; then

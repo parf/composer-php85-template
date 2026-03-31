@@ -17,7 +17,7 @@ composer create-project parf/composer-php85-template your-project-name
 cd your-project-name
 ```
 
-Install [`php-tools`](https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto).
+Install [`php-tools`](https://github.com/homebase/php-tools).
 
 ## Commands And Workflow
 

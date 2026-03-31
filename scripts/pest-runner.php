@@ -32,7 +32,7 @@ $sharedPestBinary = trim((string) shell_exec('command -v pest 2>/dev/null'));
 if ($sharedPestBinary === '') {
     fwrite(STDERR, "Missing shared Pest binary on PATH.\n");
     fwrite(STDERR, "Install shared php-tools first:\n");
-    fwrite(STDERR, "https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto\n");
+    fwrite(STDERR, "https://github.com/homebase/php-tools\n");
 
     exit(1);
 }
