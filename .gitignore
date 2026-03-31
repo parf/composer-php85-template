@@ -1,4 +1,5 @@
 .idea
+.vscode
 .env
 vendor
 tools
@@ -8,3 +9,9 @@ doc
 .phpunit.result.cache
 *.code-workspace
 *.local
+*.local.*
+.DS_Store
+*.log
+old
+*.old
+*.swp
