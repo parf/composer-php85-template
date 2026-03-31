@@ -10,24 +10,19 @@ cd php-tools
 
 After the first install, `php-tools` is on your `PATH`.
 
-Create the project-local `tools` symlink so the Composer scripts in this template can use the shared binaries:
-
-```bash
-ln -s ~/src/php-tools/bin tools
-```
-
-If your `php-tools` checkout lives somewhere else, point the symlink at that checkout's `bin/` directory instead.
-
 For `spartan-test`, make sure `stest` and `stest-all` are in your `PATH`. A normal `php-tools install` already handles that by linking the managed binaries into `~/bin` or `/usr/local/bin`.
 
 This template also expects shared `mago`, `pest`, `phpunit`, `phpstan`, `psalm`, `rector`, `php-cs-fixer`, `phpDocumentor`, and `psysh` binaries from that same `php-tools` install.
+
+If one of those commands is missing, the suite scripts fail fast and print a link back to this setup guide.
+
+The suite also prefers the managed `bin/` directory that lives next to the detected `php-tools` install, so the current shared toolchain wins over stale older wrappers elsewhere on your `PATH`.
 
 Useful follow-up commands:
 
 ```bash
 php-tools list
 php-tools update all
-php-tools symlink local
 ```
 
 See the [php-tools README](https://github.com/homebase/php-tools) for current install and update details.

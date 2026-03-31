@@ -8,8 +8,26 @@ PROJECT_ROOT="$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)"
 # shellcheck disable=SC1091
 . "$SCRIPT_DIR/lib-tools.sh"
 
+ensure_managed_tools_path
+
 cd "$PROJECT_ROOT"
 load_tools_config
+
+if is_enabled ENABLE_MAGO; then
+    require_cmd mago
+fi
+
+if is_enabled ENABLE_CS_FIXER; then
+    require_cmd php-cs-fixer
+fi
+
+if is_enabled ENABLE_PSALM; then
+    require_cmd psalm.phar
+fi
+
+if is_enabled ENABLE_RECTOR; then
+    require_cmd rector
+fi
 
 if is_enabled ENABLE_PSALM; then
     run_step "Psalm fix" composer psalm-fix

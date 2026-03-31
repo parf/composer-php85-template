@@ -30,16 +30,17 @@ Common line suppressions:
 
 Default template setup:
 
-- `withPhpSets()` enabled, so Rector follows the PHP version declared by the project
-- prepared sets:
-  - `deadCode`
-  - `codeQuality`
-  - `earlyReturn`
-  - `naming`
-  - `privatization`
-  - `typeDeclarations`
-- explicit rule:
-  - `SafeDeclareStrictTypesRector`
+- PHP upgrade sets up to the version supported by the shared Rector install
+- default sets:
+  - `PHP_82`
+  - `CODE_QUALITY`
+  - `TYPE_DECLARATION`
+  - `DEAD_CODE`
+  - `PRIVATIZATION`
+  - `NAMING`
+  - `EARLY_RETURN`
+- level set:
+  - `UP_TO_PHP_82`
 
 Use:
 

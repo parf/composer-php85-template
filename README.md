@@ -17,11 +17,13 @@ composer create-project parf/composer-php85-template your-project-name
 cd your-project-name
 ```
 
-First, install shared `php-tools` with:
+Install shared `php-tools` with:
 
 - https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto
 
-Then create the local `tools` symlink, rename the sample package bits, and run `composer check` to make sure everything is wired correctly ✅
+Then rename the sample package bits and run `composer check` to make sure everything is wired correctly ✅
+
+If a required tool is missing, the suite scripts stop and print the setup link automatically.
 
 ## Commands And Workflow
 
@@ -60,6 +62,8 @@ Use this file to choose which tools are active in your project. If you do not wa
 This template keeps CLI tools in a shared `php-tools` install instead of `require-dev`, so project dependencies stay small and the same toolchain can be reused across projects 🔧
 
 Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installation), [Psalm](https://psalm.dev/docs/annotating_code/supported_annotations/), [PHPStan](https://phpstan.org/writing-php-code/phpdocs-basics), [Rector](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md), [phpDocumentor](https://docs.phpdoc.org/3.0/guide/guides/running-phpdocumentor.html#quickstart), [php-cs-fixer](https://mlocati.github.io/php-cs-fixer-configurator/), [spartan-test](https://github.com/parf/spartan-test), [Pest](https://pestphp.com/), [PsySH](https://psysh.org/).
+
+If one of these commands is not on `PATH`, the suite scripts fail fast and point to the setup guide.
 
 ## GitHub Starter Files
 

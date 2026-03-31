@@ -7,22 +7,26 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\TypeDeclaration\Rector\StmtsAwareInterface\SafeDeclareStrictTypesRector;
+use Rector\Set\ValueObject\LevelSetList;
+use Rector\Set\ValueObject\SetList;
+use Rector\ValueObject\PhpVersion;
 
-return RectorConfig::configure()
-    ->withPaths([
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->paths([
         __DIR__ . '/src',
         __DIR__ . '/tests',
-    ])
-    ->withPhpSets()
-    ->withPreparedSets(
-        deadCode: true,
-        codeQuality: true,
-        earlyReturn: true,
-        naming: true,
-        privatization: true,
-        typeDeclarations: true,
-    )
-    ->withRules([
-        SafeDeclareStrictTypesRector::class,
     ]);
+
+    $rectorConfig->sets([
+        LevelSetList::UP_TO_PHP_82,
+        SetList::PHP_82,
+        SetList::CODE_QUALITY,
+        SetList::TYPE_DECLARATION,
+        SetList::DEAD_CODE,
+        SetList::PRIVATIZATION,
+        SetList::NAMING,
+        SetList::EARLY_RETURN,
+    ]);
+
+    $rectorConfig->phpVersion(PhpVersion::PHP_82);
+};

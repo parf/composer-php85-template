@@ -8,8 +8,44 @@ PROJECT_ROOT="$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)"
 # shellcheck disable=SC1091
 . "$SCRIPT_DIR/lib-tools.sh"
 
+ensure_managed_tools_path
+
 cd "$PROJECT_ROOT"
 load_tools_config
+require_cmd php
+
+if is_enabled ENABLE_LINT; then
+    require_cmd find
+    require_cmd xargs
+fi
+
+if is_enabled ENABLE_MAGO; then
+    require_cmd mago
+fi
+
+if is_enabled ENABLE_CS_FIXER; then
+    require_cmd php-cs-fixer
+fi
+
+if is_enabled ENABLE_PHPSTAN; then
+    require_cmd phpstan
+fi
+
+if is_enabled ENABLE_PSALM; then
+    require_cmd psalm.phar
+fi
+
+if is_enabled ENABLE_RECTOR; then
+    require_cmd rector
+fi
+
+if is_enabled ENABLE_SPARTAN_TEST; then
+    require_cmd stest-all
+fi
+
+if is_enabled ENABLE_PEST; then
+    require_cmd pest
+fi
 
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "$tmp_dir"' EXIT INT TERM

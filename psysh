@@ -1,2 +1,2 @@
 #!/bin/sh
-./tools/psysh --config .psys.php $*
+psysh --config .psys.php "$@"

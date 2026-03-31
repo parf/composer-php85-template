@@ -8,8 +8,19 @@ PROJECT_ROOT="$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)"
 # shellcheck disable=SC1091
 . "$SCRIPT_DIR/lib-tools.sh"
 
+ensure_managed_tools_path
+
 cd "$PROJECT_ROOT"
 load_tools_config
+
+if is_enabled ENABLE_SPARTAN_TEST; then
+    require_cmd stest-all
+fi
+
+if is_enabled ENABLE_PEST; then
+    require_cmd pest
+    require_cmd php
+fi
 
 quiet="${1:-}"
 

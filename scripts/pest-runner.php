@@ -27,13 +27,17 @@ if (!file_exists($projectAutoload)) {
     exit(1);
 }
 
-$sharedPestBinary = realpath($projectRoot . '/tools/pest');
+$sharedPestBinary = trim((string) shell_exec('command -v pest 2>/dev/null'));
 
-if ($sharedPestBinary === false) {
-    fwrite(STDERR, "Missing shared Pest binary at tools/pest.\n");
+if ($sharedPestBinary === '') {
+    fwrite(STDERR, "Missing shared Pest binary on PATH.\n");
+    fwrite(STDERR, "Install shared php-tools first:\n");
+    fwrite(STDERR, "https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto\n");
 
     exit(1);
 }
+
+$sharedPestBinary = (string) realpath($sharedPestBinary);
 
 $sharedPestAutoload = dirname($sharedPestBinary, 2) . '/autoload.php';
 
