@@ -21,10 +21,6 @@ Install shared `php-tools` with:
 
 - https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto
 
-Then rename the sample package bits and run `composer check` to make sure everything is wired correctly ✅
-
-If a required tool is missing, the suite scripts stop and print the setup link automatically.
-
 ## Commands And Workflow
 
 1. run `composer dry` to inspect non-mutating tool results
