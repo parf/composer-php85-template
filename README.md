@@ -23,27 +23,21 @@ Then create the local `tools` symlink, rename the sample package bits, and run `
 
 ## Commands And Workflow
 
-> `composer check`<br>
-    run the full validation pass: enabled dry-mode tools, then enabled tests
-
-> `composer dry`<br>
-    run enabled tools in non-mutating mode without running tests
-
-> `composer test`<br>
-    run enabled test runners
-
-> `composer fix`<br>
-    run enabled tools in mutating mode
-
-> `composer doc`<br>
-    generate docs when documentation tooling is enabled
-
-Need the full command list? See [COMMANDS.md](docs/COMMANDS.md) 📘
-
 1. run `composer dry` to inspect non-mutating tool results
 2. run `composer test` to run enabled tests
 3. run `composer fix` if you want to apply automated changes
-4. run `composer check` before commit or push
+4. run `composer check` for the full validation pass before commit or push
+5. run `composer doc` when you want to generate documentation
+
+Helper commands:
+
+- `./check-commit` runs `composer check`, then creates a commit from already staged files
+- `./check-push` runs `composer check`, then pushes the current branch
+- `./psysh` starts the interactive PHP shell
+
+If a required tool fails during `composer check`, then `./check-commit` and `./check-push` stop immediately and no commit or push is performed.
+
+Need the full command list? See [COMMANDS.md](docs/COMMANDS.md) 📘
 
 ## Tools Configuration
 
