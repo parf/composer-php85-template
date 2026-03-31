@@ -21,27 +21,7 @@ First, install shared `php-tools` with:
 
 Then create the local `tools` symlink, rename the sample package bits, and run `composer check` to make sure everything is wired correctly ✅
 
-## Tools Configuration
-
-The suite commands read [config/tools.conf](config/tools.conf).
-
-Use this file to choose which tools are active in your project. If you do not want to use a tool, set its flag to `0`. That way you keep the same shared command surface while tailoring the template to the stack you actually want ⚙️
-
-Enabled tools control what these commands run:
-
-- `composer check` for full validation
-- `composer dry` for non-mutating static validation
-- `composer test`
-- `composer fix`
-- `composer doc`
-
-## Why This Template Uses `php-tools`
-
-This template keeps CLI tools in a shared `php-tools` install instead of `require-dev`, so project dependencies stay small and the same toolchain can be reused across projects 🔧
-
-Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installation), [Psalm](https://psalm.dev/docs/annotating_code/supported_annotations/), [PHPStan](https://phpstan.org/writing-php-code/phpdocs-basics), [Rector](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md), [phpDocumentor](https://docs.phpdoc.org/3.0/guide/guides/running-phpdocumentor.html#quickstart), [php-cs-fixer](https://mlocati.github.io/php-cs-fixer-configurator/), [spartan-test](https://github.com/parf/spartan-test), [Pest](https://pestphp.com/), [PsySH](https://psysh.org/).
-
-## Main Commands
+## Commands And Workflow
 
 > `composer check`<br>
     run the full validation pass: enabled dry-mode tools, then enabled tests
@@ -60,12 +40,22 @@ Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installati
 
 Need the full command list? See [COMMANDS.md](docs/COMMANDS.md) 📘
 
-## Typical Workflow
-
 1. run `composer dry` to inspect non-mutating tool results
 2. run `composer test` to run enabled tests
 3. run `composer fix` if you want to apply automated changes
 4. run `composer check` before commit or push
+
+## Tools Configuration
+
+The suite commands read [config/tools.conf](config/tools.conf).
+
+Use this file to choose which tools are active in your project. If you do not want to use a tool, set its flag to `0`. That way you keep the same shared command surface while tailoring the template to the stack you actually want ⚙️
+
+## Why This Template Uses `php-tools`
+
+This template keeps CLI tools in a shared `php-tools` install instead of `require-dev`, so project dependencies stay small and the same toolchain can be reused across projects 🔧
+
+Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installation), [Psalm](https://psalm.dev/docs/annotating_code/supported_annotations/), [PHPStan](https://phpstan.org/writing-php-code/phpdocs-basics), [Rector](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md), [phpDocumentor](https://docs.phpdoc.org/3.0/guide/guides/running-phpdocumentor.html#quickstart), [php-cs-fixer](https://mlocati.github.io/php-cs-fixer-configurator/), [spartan-test](https://github.com/parf/spartan-test), [Pest](https://pestphp.com/), [PsySH](https://psysh.org/).
 
 ## GitHub Starter Files
 
