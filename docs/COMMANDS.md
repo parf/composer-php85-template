@@ -35,19 +35,18 @@ Detailed command reference:
 - `./check` runs the full validation flow and prints one line per successful tool.
 - `./check-commit [commit-message]`
   - runs `./check`
-  - if check succeeds, shows the files that would be committed
+  - if check succeeds, shows the files that would be added/committed
   - asks for a commit message if needed
   - if the prompt is left empty, exits with `1`, does not create a commit, and does not add new files to git
-  - stages all changes only after the message step
-  - creates the commit
+  - stages all changes, then creates the *commit*
 - `./check-push [commit-message] [branch]`
   - runs `./check-commit`
-  - pushes after a successful commit
+  - *pushes* after a *successful* check and commit
   - optional second argument: target branch
 - `./psysh` starts the interactive PHP shell.
 
 Notes:
 
-- `composer dry` runs independent read-only tools in parallel where possible.
+- `composer dry` runs independent read-only tools in *parallel* where possible.
 - `composer stest` uses `stest-all`, which executes `.stest` files in parallel.
 - `config/tools.conf` controls which tools are active for the suite commands.

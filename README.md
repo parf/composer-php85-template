@@ -8,7 +8,7 @@ This repository gives you a modern PHP 8.5 package template with a shared `php-t
 
 You can turn individual tools on or off in [config/tools.conf](config/tools.conf), so each project can keep the same friendly workflow while enabling only the parts it actually wants to use ⚙️
 
-The suite is designed to run independent tools in parallel whenever possible, so validation stays fast without dropping checks 🚀
+The suite is designed to run independent tools in *parallel* whenever possible, so validation stays fast without dropping checks 🚀
 
 ## How To Use
 
@@ -35,14 +35,13 @@ Helper commands:
 
 - `./check-commit [commit-message]`
   - runs `composer check`
-  - if check succeeds, shows the files that would be committed
+  - if check succeeds, shows the files that would be added/committed
   - asks for a commit message if one was not passed on the command line
   - if the message is left empty, exits with `1`, creates no commit, and adds no new files to git
-  - stages all changes only after the message step
-  - creates the commit
+  - stages all changes, then creates the *commit*
 - `./check-push [commit-message] [branch]`
   - runs `./check-commit`
-  - pushes after a successful commit
+  - *pushes* after a *successful* check and commit
   - optional second argument: target branch
 - `./psysh` starts the interactive PHP shell
 
