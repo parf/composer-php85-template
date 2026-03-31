@@ -8,6 +8,8 @@ This repository gives you a modern PHP 8.5 package template with a shared `php-t
 
 You can turn individual tools on or off in [config/tools.conf](config/tools.conf), so each project can keep the same friendly workflow while enabling only the parts it actually wants to use ⚙️
 
+The suite is designed to run independent tools in parallel whenever possible, so validation stays fast without dropping checks 🚀
+
 ## How To Use
 
 ```bash
