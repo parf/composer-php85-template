@@ -87,10 +87,8 @@ Workflow coverage:
 
 Local equivalents:
 
-- run `composer check` for the main validation flow
-- run `composer dry` for the non-mutating lint/analyzer pass
-- run `composer test` for the bundled Spartan + Pest test flow
-- the `Lint` workflow is equivalent to `composer dry`
+- `Lint` is equivalent to `composer dry`
+- `Tests` is equivalent to `composer test`
 
 If you do not want GitHub CI in your derived project, remove the `.github/workflows/` files.
 
@@ -99,7 +97,6 @@ If you do not want GitHub CI in your derived project, remove the `.github/workfl
 - `src/TemplatePackage/` contains a sample `HelloWorlds` class
 - `tests/Test.stest` is the starter Spartan test
 - `tests/Pest.php` and `tests/Pest/HelloWorldsTest.php` are the starter Pest tests
-- `config/tools.conf` enables or disables tools used by the suite commands
 - `scripts/test-suite.sh` runs the enabled test runners for `composer test`
 - `tests/fixtures-src/` is reserved for test-only sample source files if the package grows
 

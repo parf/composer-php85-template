@@ -1,16 +1,13 @@
 # Commands
 
-Main suite commands:
-
-- `composer check` runs the enabled dry-mode tools and the enabled test runners
-- `composer dry` runs enabled tools in non-mutating mode
-- `composer test` runs enabled test runners
-- `composer fix` runs enabled tools in mutating mode
-- `composer doc` generates docs when documentation tooling is enabled
-
-Advanced commands:
+Detailed command reference:
 
 - `composer lint`
+- `composer check`
+- `composer dry`
+- `composer test`
+- `composer fix`
+- `composer doc`
 - `composer stest`
 - `composer stest-q`
 - `composer pest`
