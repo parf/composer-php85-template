@@ -25,3 +25,23 @@ Common line suppressions:
 
 - `/** @phpstan-ignore-line */`
 - `/** @phpstan-ignore-next-line */`
+
+## Rector
+
+Default template setup:
+
+- `withPhpSets()` enabled, so Rector follows the PHP version declared by the project
+- prepared sets:
+  - `deadCode`
+  - `codeQuality`
+  - `earlyReturn`
+  - `naming`
+  - `privatization`
+  - `typeDeclarations`
+- explicit rule:
+  - `SafeDeclareStrictTypesRector`
+
+Use:
+
+- `composer rector-dry` to preview changes
+- `composer rector` to apply changes

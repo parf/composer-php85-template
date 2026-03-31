@@ -32,7 +32,7 @@ Then create the local `tools` symlink, rename the sample package bits, and run `
 Helper commands:
 
 - `./check-commit` runs `composer check`, then creates a commit from already staged files
-- `./check-push` runs `composer check`, then pushes the current branch
+- `./check-push` runs `./check-commit`, then pushes the current branch
 - `./psysh` starts the interactive PHP shell
 
 If a required tool fails during `composer check`, then `./check-commit` and `./check-push` stop immediately and no commit or push is performed.
