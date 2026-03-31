@@ -21,6 +21,10 @@
         }
     },
   "scripts": {
+    "check": "sh scripts/check.sh",
+    "dry": "sh scripts/dry.sh",
+    "fix": "sh scripts/fix.sh",
+    "doc": "sh scripts/doc.sh",
     "phpstan": "tools/phpstan analyse -c phpstan.neon src",
     "stan": "tools/phpstan analyse -c phpstan.neon src",
     "stan-q": "tools/phpstan -q analyse -c phpstan.neon src",
@@ -29,7 +33,7 @@
     "stan4": "tools/phpstan analyse --level 4 -c phpstan.neon src",
     "stan5": "tools/phpstan analyse --level 5 -c phpstan.neon src",
     "stan6": "tools/phpstan analyse --level 6 -c phpstan.neon src",
-    "doc": "tools/phpDocumentor.phar -d 'src' -t doc",
+    "phpdoc": "tools/phpDocumentor.phar -d 'src' -t doc",
     "psalm": "tools/psalm.phar",
     "psalm-dry": "tools/psalm.phar --alter --issues=MissingClosureReturnType,UnusedVariable,MissingReturnType,InvalidReturnType --dry-run",
     "psalm-fix": "tools/psalm.phar --alter --issues=MissingClosureReturnType,UnusedVariable,MissingReturnType,InvalidReturnType",

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-./check
+composer check
 git push --follow-tags
 
 echo

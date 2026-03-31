@@ -2,6 +2,15 @@
 
 set -eu
 
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+PROJECT_ROOT="$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)"
+
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/lib-tools.sh"
+
+cd "$PROJECT_ROOT"
+load_tools_config
+
 quiet="${1:-}"
 
 if [ "$quiet" = "--quiet" ]; then
@@ -12,6 +21,14 @@ else
     pest_cmd="composer pest"
 fi
 
-# Comment any runner you do not want in this template clone.
-$stest_cmd
-$pest_cmd
+if is_enabled ENABLE_SPARTAN_TEST; then
+    run_step "Spartan Test" sh -c "$stest_cmd"
+else
+    skip_step "Spartan Test"
+fi
+
+if is_enabled ENABLE_PEST; then
+    run_step "Pest" sh -c "$pest_cmd"
+else
+    skip_step "Pest"
+fi
