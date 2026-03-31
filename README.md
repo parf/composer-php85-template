@@ -33,8 +33,17 @@ Then create the local `tools` symlink, rename the sample package bits, and run `
 
 Helper commands:
 
-- `./check-commit` runs `composer check`, shows changed files, asks for a commit message if needed, then stages and commits all changes
-- `./check-push` runs `./check-commit`, then pushes the current branch
+- `./check-commit [commit-message]`
+  - runs `composer check`
+  - if check succeeds, shows the files that would be committed
+  - asks for a commit message if one was not passed on the command line
+  - if the message is left empty, exits with `1`, creates no commit, and adds no new files to git
+  - stages all changes only after the message step
+  - creates the commit
+- `./check-push [commit-message] [branch]`
+  - runs `./check-commit`
+  - pushes after a successful commit
+  - optional second argument: target branch
 - `./psysh` starts the interactive PHP shell
 
 If a required tool fails during `composer check`, then `./check-commit` and `./check-push` stop immediately and no commit or push is performed.

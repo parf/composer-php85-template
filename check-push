@@ -1,8 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 
-./check-commit "$@"
-git push --follow-tags
+commit_message="${1:-}"
+push_branch="${2:-}"
+
+./check-commit "$commit_message"
+
+if [ -n "$push_branch" ]; then
+    git push --follow-tags origin "HEAD:$push_branch"
+else
+    git push --follow-tags
+fi
 
 echo
 echo "$(tput setab 2)$(tput setaf 7)*** GIT-PUSH SUCCESS ***$(tput sgr0)"

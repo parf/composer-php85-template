@@ -33,8 +33,17 @@ Detailed command reference:
 - `composer rector` applies Rector changes using the same configuration.
 - `composer phpdoc` runs phpDocumentor and writes output to `doc/`. Use it for generated API-style documentation.
 - `./check` runs the full validation flow and prints one line per successful tool.
-- `./check-commit` runs `./check`, shows changed files, asks for a commit message if needed, then stages and commits all changes.
-- `./check-push` runs `./check-commit` and then pushes the current branch.
+- `./check-commit [commit-message]`
+  - runs `./check`
+  - if check succeeds, shows the files that would be committed
+  - asks for a commit message if needed
+  - if the prompt is left empty, exits with `1`, does not create a commit, and does not add new files to git
+  - stages all changes only after the message step
+  - creates the commit
+- `./check-push [commit-message] [branch]`
+  - runs `./check-commit`
+  - pushes after a successful commit
+  - optional second argument: target branch
 - `./psysh` starts the interactive PHP shell.
 
 Notes:

@@ -17,7 +17,7 @@ if [ -z "$commit_message" ]; then
 fi
 
 if [ -z "$commit_message" ]; then
-    echo "Empty commit message. Aborting."
+    echo "NOT COMMITED: empty commit message."
     exit 1
 fi
 
