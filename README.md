@@ -2,6 +2,12 @@
 
 Starter template for PHP 8.5 packages that use standalone shared CLI tooling from `php-tools`.
 
+## Summary
+
+This repository gives you a modern PHP 8.5 package template with a shared `php-tools` toolchain, configurable suite commands, sample Spartan and Pest tests, static analysis, refactoring, formatting, documentation generation, and optional GitHub CI scaffolding ✨
+
+You can turn individual tools on or off in [config/tools.conf](config/tools.conf), so each project can keep the same friendly workflow while enabling only the parts it actually wants to use ⚙️
+
 ## How To Use
 
 ```bash
@@ -9,17 +15,17 @@ composer create-project parf/composer-php85-template your-project-name
 cd your-project-name
 ```
 
-Install shared `php-tools` with:
+First, install shared `php-tools` with:
 
 - https://github.com/parf/composer-php85-template/blob/main/docs/setup-tools.howto
 
-Then create the local `tools` symlink, rename the sample package bits, and run `composer check`.
+Then create the local `tools` symlink, rename the sample package bits, and run `composer check` to make sure everything is wired correctly ✅
 
 ## Tools Configuration
 
 The suite commands read [config/tools.conf](config/tools.conf).
 
-Use this file to choose which tools are active in your project. If you do not want to use a tool, set its flag to `0`. That lets you keep the shared command surface while tailoring the template to the actual stack you want to keep.
+Use this file to choose which tools are active in your project. If you do not want to use a tool, set its flag to `0`. That way you keep the same shared command surface while tailoring the template to the stack you actually want ⚙️
 
 Enabled tools control what these commands run:
 
@@ -31,7 +37,7 @@ Enabled tools control what these commands run:
 
 ## Why This Template Uses `php-tools`
 
-This template keeps CLI tools in a shared `php-tools` install instead of `require-dev`, so project dependencies stay small and the same toolchain can be reused across projects.
+This template keeps CLI tools in a shared `php-tools` install instead of `require-dev`, so project dependencies stay small and the same toolchain can be reused across projects 🔧
 
 Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installation), [Psalm](https://psalm.dev/docs/annotating_code/supported_annotations/), [PHPStan](https://phpstan.org/writing-php-code/phpdocs-basics), [Rector](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md), [phpDocumentor](https://docs.phpdoc.org/3.0/guide/guides/running-phpdocumentor.html#quickstart), [php-cs-fixer](https://mlocati.github.io/php-cs-fixer-configurator/), [spartan-test](https://github.com/parf/spartan-test), [Pest](https://pestphp.com/), [PsySH](https://psysh.org/).
 
@@ -52,7 +58,7 @@ Included tools: PHP lint, [Mago](https://mago.carthage.software/guide/installati
 > `composer doc`<br>
     generate docs when documentation tooling is enabled
 
-Other commands are listed in [COMMANDS.md](docs/COMMANDS.md).
+Need the full command list? See [COMMANDS.md](docs/COMMANDS.md) 📘
 
 ## Typical Workflow
 
@@ -69,7 +75,7 @@ The template includes optional GitHub repository scaffolding:
 - Dependabot configuration
 - issue templates for bug reports and questions
 
-These are adapted for the standalone `php-tools` workflow and do not require Docker.
+These files are adapted for the standalone `php-tools` workflow and do not require Docker 🐳
 
 ## GitHub CI
 
@@ -90,7 +96,7 @@ Local equivalents:
 - `Lint` is equivalent to `composer dry`
 - `Tests` is equivalent to `composer test`
 
-If you do not want GitHub CI in your derived project, remove the `.github/workflows/` files.
+If you do not want GitHub CI in your derived project, just remove the `.github/workflows/` files.
 
 ## Project Layout
 
@@ -100,7 +106,7 @@ If you do not want GitHub CI in your derived project, remove the `.github/workfl
 - `scripts/test-suite.sh` runs the enabled test runners for `composer test`
 - `tests/fixtures-src/` is reserved for test-only sample source files if the package grows
 
-If your test suite grows, group tests by topic under `tests/` instead of keeping everything in one file.
+If your test suite grows, group tests by topic under `tests/` instead of keeping everything in one file. That keeps the starter layout simple while leaving room to grow 🌱
 
 ## Analyzer Notes
 
